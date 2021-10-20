@@ -1,0 +1,120 @@
+// sass --watch src\assets\scss\index.scss src\assets\css\index.css 
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+body,
+html,
+html * {
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    background: rgb(18,12,40);
+    background: linear-gradient(0deg, rgba(18,12,40,1) 0%, rgb(65, 8, 77) 100%);
+    min-height: 100vh;
+    color: #fff;
+
+}
+.container {
+    max-width: 1100px;
+    margin: 50px auto;
+}
+header {
+    border-bottom: 1px solid whitesmoke;
+    border-radius: 15%;
+    .up {
+        h1 {
+            text-align: center;
+            letter-spacing: 4px;
+        }
+    }
+    .down {
+        padding: 20px;
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            li {
+                font-size: larger;
+            }
+        }
+    }
+}
+.player {
+    .player-up {
+        max-width: 1100px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        svg {
+            transition: 0.3s;
+            &:hover {
+                font-size: 6em;
+            }
+        }
+        .left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 9%;
+        }
+        .vid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            video{
+                width:100%;
+            }
+        }
+        .right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 9%;
+        }
+    }
+    .player-down {
+        text-align: center;
+    }
+}
+.archive {
+    max-width: 900px;
+    margin: 0 auto;
+    div{
+        height: 500px;
+        margin: 0 auto;
+        overflow-y: scroll;
+        max-width: 60%;
+        table {
+            table-layout: auto;
+            width:100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            
+            
+            tr{
+                cursor: pointer;
+                th{
+                    padding:5px
+                }
+            }
+            thead{
+                tr{
+                    background-color: rgba(255,255,255,.2);
+                }
+            }
+            tbody{
+                overflow-y: scroll;
+                height: 500px;
+                tr:first-child{
+                    display:none;
+                }
+            }
+            tr:nth-child(2n-1) {
+                background-color: rgba(255,255,255,.2);
+            }
+        }
+    }
+}
