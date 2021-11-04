@@ -649,22 +649,41 @@ class Content extends Component {
             [564, "Naprawa Ferdka", "http://ipla-e1-80.pluscdn.pl/p/vm2movies/fz/fzcj225438rz18nkcvgdjtxbzzf57i21.mp4", 29],
         ],
     }
+    handleEpisodeStorage = (episode) =>{
+        console.log(episode);
+        localStorage.setItem("episode", episode);
+        console.log("dodano do local storage:" + episode);
+    }
     pickVideo = (e) =>{
         this.setState(() => ({
             nowPlaying : e[0],
         }));
+        this.handleEpisodeStorage(e[0]);
     };
     nextVideo = (e) =>{
         if (e === 0){
             this.setState(()=>({
                 nowPlaying: 1,
             }))
+            this.handleEpisodeStorage(1);
         }else{
         this.setState(()=>({
             nowPlaying: e,
         }))
+        this.handleEpisodeStorage(e);
         }
     }
+    componentDidMount() {
+        let episode = localStorage.getItem("episode");
+        console.log(episode);
+        if (localStorage.getItem("episode") === null){
+            localStorage.setItem("episode", 1);
+            console.log("nowy");
+        }else{
+            this.setState(()=>({nowPlaying: episode}));
+        }
+    }
+
     render() {
         const dbarr = this.state.dbarr;
         const np = this.state.nowPlaying;
